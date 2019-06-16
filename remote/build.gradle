@@ -1,0 +1,59 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion BuildConfig.compileSdk
+
+
+    defaultConfig {
+        minSdkVersion BuildConfig.minSdk
+        targetSdkVersion BuildConfig.targetSdk
+        resConfigs "en"
+    }
+    buildTypes {
+        debug {
+            buildConfigField "String", "BASE_URL", "\"https://newsapi.org/v2/\""
+
+
+        }
+
+        release {
+            buildConfigField "String", "BASE_URL", "\"https://newsapi.org/v2/\""
+
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    testImplementation CommonLibs.junit
+    testImplementation Mockito.core
+    testImplementation Mockito.inline
+    testImplementation Mockito.kotlin
+
+    kaptAndroidTest Dagger.compiler
+
+    implementation project(':data')
+
+    implementation Kotlin.stdblib_jdk
+    implementation CommonLibs.javaxInject
+
+    api Retrofit.core
+    api Retrofit.moshi_converter
+
+    api OkHttp.client
+    api OkHttp.logger
+
+    api Moshi.core
+    kapt Moshi.code_gen
+    api Moshi.moshi_kotlin
+
+    implementation Dagger.core
+    kapt Dagger.compiler
+
+}

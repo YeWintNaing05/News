@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">remote</string>
+
+    <string name="error_404">Server not found</string>
+    <string name="error_401">Unauthorized</string>
+    <string name="error_500">Server broken</string>
+</resources>

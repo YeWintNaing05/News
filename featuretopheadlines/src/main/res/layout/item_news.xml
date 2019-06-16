@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:elevation="8dp"
+        android:padding="10dp">
+
+    <TextView
+            android:id="@+id/txtNewsTitle"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:text="Lorem Ipsum Dolor Amet, Consectetur Adipiscing Elit Ipsum Dolor Amet"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+    <TextView
+            android:id="@+id/txtNewsDescription"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtNewsTitle"
+            android:layout_marginTop="10dp"
+            android:text="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form..."
+            android:textSize="14dp"/>
+
+    <TextView
+            android:id="@+id/txtNewsTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtNewsDescription"
+            android:layout_marginTop="10dp"
+            android:text="30 min ago"
+            android:textSize="12dp"
+            android:textStyle="bold"/>
+
+    <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/imgNews"
+            android:layout_width="wrap_content"
+            android:layout_height="160dp"
+            android:layout_marginStart="5dp"
+            android:scaleType="centerCrop"
+            android:layout_toEndOf="@+id/txtNewsDescription"
+    />
+
+</RelativeLayout>

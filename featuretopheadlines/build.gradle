@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion BuildConfig.compileSdk
+
+
+    defaultConfig {
+        minSdkVersion BuildConfig.minSdk
+        targetSdkVersion BuildConfig.targetSdk
+        versionName BuildConfig.versionName
+        versionCode BuildConfig.versionCode
+        multiDexEnabled true
+    }
+
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':common')
+
+    //AndroidX
+    implementation Material.material
+    implementation AndroidXCardView.card_view
+    implementation AndroidXConstraintLayout.constraint_layout
+    implementation AndroidXFragment.fragment
+
+    //Dagger
+    kapt Dagger.compiler
+    kapt Dagger.android_processor
+
+
+
+    //Test
+    debugImplementation AndroidXFragment.fragment_testing
+
+    testImplementation CommonLibs.junit
+
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/news"
+            app:startDestination="@id/first">
+
+    <fragment android:id="@+id/first"
+              android:name="com.ywn.featuretopheadlines.ui.TopHeadlinesFragment"
+              android:label="Home"/>
+    <fragment android:id="@+id/second"
+              android:name="com.ywn.featuretopheadlines.ui.TopHeadlinesWithSourceFragment"
+              android:label="Top Headlines With Source"/>
+    <fragment android:id="@+id/third" android:name="com.ywn.featurearticle.ui.ArticleFragment"
+              android:label="Article"/>
+</navigation>

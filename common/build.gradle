@@ -1,0 +1,85 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion BuildConfig.compileSdk
+
+
+    defaultConfig {
+        minSdkVersion BuildConfig.minSdk
+        targetSdkVersion BuildConfig.targetSdk
+        multiDexEnabled true
+    }
+    buildTypes {
+        debug{
+            resValue 'string', "api_key", "add your key"
+
+        }
+        release {
+            resValue 'string', "api_key", "add your key"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+
+    api project(':domain')
+    api project(':data')
+    api project(':remote')
+
+
+
+    //AndroidX
+    api AndroidXCore.core
+    api AndroidXCore.core_kt
+    api AndroidXAppCompat.app_compat
+    api AndroidXRecyclerView.recycler_view
+    api Material.material
+
+    //Inject
+    api CommonLibs.javaxInject
+    api Dagger.core
+    api Dagger.android_core
+    api Dagger.android_support
+    kapt Dagger.compiler
+    kapt Dagger.android_processor
+
+    //RX
+    api ReactiveX.rxandroid
+    //RxBinding
+    api RxBinding.rxbinding
+
+    //Arch
+    api AndroidArchLifeCycle.lifecycle
+    kapt AndroidArchLifeCycle.lifecycle_compiler
+
+
+
+    //Test
+    testImplementation CommonLibs.junit
+
+    kaptAndroidTest Dagger.compiler
+    androidTestImplementation Mockito.core
+    androidTestImplementation Mockito.inline
+    androidTestImplementation Mockito.kotlin
+    androidTestImplementation AndroidXTest.rules
+    androidTestImplementation AndroidXTest.runner
+    androidTestImplementation AndroidArchCore.test
+    androidTestImplementation AndroidXEspresso.core
+    androidTestImplementation AndroidXEspresso.contrib
+    androidTestImplementation AndroidXEspresso.intents
+    androidTestImplementation AndroidXEspresso.idling_concurrent
+    androidTestImplementation AndroidXEspresso.idling_resource
+    androidTestImplementation FragmentTestRule.android
+    androidTestImplementation AndroidXEspresso.rx_idler
+    api Glide.core
+}

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">featuretopheadlines</string>
+    <string name="enter_source_name_eg_bbc_news">Enter source name :eg bbc-news(default)</string>
+</resources>
